@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <!-- Bootstrap 手机屏幕自适应的响应式布局开关 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render partial: 'layouts/shared/admin_header' %>
+    <div class="widewrapper main">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 blog-main">
+            <%= yield %>
+          </div>
+          <aside class="col-md-4 blog-aside">
+            <%= render partial: 'layouts/shared/aside', locals: { featured_articles: @featured_articles, relational_articles: @relational_articles, tags: @tags } %>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <%= render partial: 'layouts/shared/footer', locals: { recent_articles: @recent_articles } %>
+  </body>
+</html>

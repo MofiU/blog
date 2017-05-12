@@ -1,0 +1,56 @@
+<div class="widewrapper main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 blog-main">
+                    <article class="blog-post">
+                        <header>
+                            <div class="lead-image">
+                                <!-- <img src="img/single-post.jpg" alt="" class="img-responsive"> -->
+                            </div>
+                        </header>
+                        <div class="body">
+                            <h1><%= @article.title %></h1>
+                            <div class="meta">
+                                <i class="fa fa-user"></i> 佚名 <i class="fa fa-calendar"></i><%= @article.created_at %><i class="fa fa-comments"></i><span class="data"><a href="#comments"><%= "#{@article.comments_count} Comments" %></a></span>
+                            </div>
+                            <p><%= @article.body.html_safe %></p>
+
+                        </div>
+                    </article>
+
+                    <aside class="social-icons clearfix">
+                        <h3>分享 </h3>
+                        <a href="#"><i class="fa fa-weixin"></i></a> <a href="#"><i class="fa fa-qq"></i></a></i></a>
+                    </aside>
+
+                    <aside class="comments" id="comments">
+                      <hr>
+                      <h2><i class="fa fa-comments"></i> <%= "#{@article.comments_count} Comments" %> </h2>
+                      <%= render @comments %>
+                    </aside>
+
+                    <aside class="create-comment" id="create-comment">
+                        <hr>
+
+                        <h2><i class="fa fa-pencil"></i> 我要评论 </h2>
+
+                        <%= simple_form_for Comment.new do |f| %>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <%= f.input :visitor_name, label: false, input_html: { placeholder: "Your Name", class: 'input-lg' } %>
+                              </div>
+                              <div class="col-md-6">
+                                 <%= f.input :email, label: false, input_html: { placeholder: "Email", type: 'email', class: 'input-lg' } %>
+                              </div>
+                          </div>
+                          <%= f.input :article_id, as: :hidden, input_html: { value: @article.id }  %>
+                          <%= f.input :website, label: false, input_html: { placeholder: "Website", type: 'url', class: 'input-lg' } %>
+                          <%= f.input :message, label: false, input_html: { placeholder: "Your Message", rows: 10, class: 'input-lg' } %>
+                          <%= f.button :submit, '提交', class: 'btn btn-xlarge btn-clean-one' %>
+                        <% end %>
+                    </aside>
+                </div>
+
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to article.id, article_path(article) %></td>
+  <td><%= link_to article.title, article_path(article) %></td>
+  <td><%= article.tag.name %></td>
+  <td><%= article.created_at %></td>
+  <td>
+    <div class="row">
+      <div class="col-md-6"><%= link_to content_tag(:i, "" ,class: 'fa fa-pencil', 'aria-hidden': true), edit_article_path(article) %></div>
+      <div class="col-md-6"><%= link_to content_tag(:i, "" ,class: 'fa fa-minus', 'aria-hidden': true), article_path(article), method: :delete %></div>
+    </div>
+  </td>
+</tr>

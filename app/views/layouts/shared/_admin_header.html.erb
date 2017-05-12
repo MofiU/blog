@@ -1,0 +1,47 @@
+<header>
+  <div class="widewrapper masthead">
+    <div class="container">
+      <%= header_logo %>
+
+      <div id="mobile-nav-toggle" class="pull-right">
+        <a href="#" data-toggle="collapse" data-target=".clean-nav .navbar-collapse">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+
+      <nav class="pull-right clean-nav">
+        <div class="collapse navbar-collapse">
+          <ul class="nav nav-pills navbar-nav">
+            <li>
+                <%= link_to '文章管理', articles_path %>
+            </li>
+            <li>
+                <%= link_to '标签管理', tags_path %>
+            </li>
+            <li>
+                <%= link_to '前台主页', root_path, target: 'blank' %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+
+  <div class="widewrapper subheader">
+    <div class="container">
+      <div class="clean-breadcrumb">
+        <%= link_to '我的后台', admin_root_path %>
+      </div>
+
+      <div class="clean-searchbox">
+        <form action="#" method="get" accept-charset="utf-8">
+          <input class="searchfield" id="searchbox" type="text" placeholder="Search">
+          <button class="searchbutton" type="submit">
+              <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</header>

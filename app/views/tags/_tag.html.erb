@@ -1,0 +1,13 @@
+<tr>
+  <td><%= link_to tag.id, tag_path(tag) %></td>
+  <td><%= link_to tag.name, tag_path(tag) %></td>
+  <td><%= tag.created_at %></td>
+  <td>
+  <div class="row">
+    <div class="col-md-6"><%= link_to content_tag(:i, "" ,class: 'fa fa-pencil', 'aria-hidden': true), edit_tag_path(tag) %></div>
+    <div class="col-md-6"><%= link_to content_tag(:i, "" ,class: 'fa fa-minus', 'aria-hidden': true), tag_path(tag), method: :delete %></div>
+  </div>
+
+
+  </td>
+</tr>

@@ -1,0 +1,36 @@
+<footer>
+  <div class="widewrapper footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 footer-widget">
+                <h3> <i class="fa fa-user"></i>关于</h3>
+
+               <p>博主是个帅哥.</p>
+               <p>不管你信不信，这就是事实.</p>
+            </div>
+
+            <div class="col-md-4 footer-widget">
+                <h3> <i class="fa fa-pencil"></i> 最新发表</h3>
+                <ul class="clean-list">
+                    <% if recent_articles.present? %>
+                        <% recent_articles.each do |article| %>
+                            <%= link_to content_tag(:li, article.title), '#' %>
+                        <% end %>
+                    <% end %>
+                </ul>
+            </div>
+
+            <div class="col-md-4 footer-widget">
+                <h3> <i class="fa fa-envelope"></i>联系老夫</h3>
+
+                <p>电话： 110-120-119</p>
+                <p>Email: xxxxx@xxx.com</p>
+                 <div class="footer-widget-icon">
+                    <i class="fa fa-facebook"></i><i class="fa fa-twitter"></i><i class="fa fa-google"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </div>
+</footer>
