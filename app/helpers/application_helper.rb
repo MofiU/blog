@@ -6,18 +6,18 @@ module ApplicationHelper
     end
   end
 
-  def blog_card(href, title, meta, body, image_path = nil)
+  def blog_card(article)
     header = content_tag :header do
-              concat(image_tag image_path) if image_path
-              concat(content_tag(:h3) { link_to title, href } )
-              concat(content_tag(:span, meta, class: 'meta'))
+              # concat(image_tag image_path) if image_path
+              concat(content_tag(:h3) { link_to article.title, article_path(article) } )
+              concat(content_tag(:span, article.created_at, class: 'meta'))
               concat(content_tag(:hr))
             end
 
-    body = content_tag(:div, body, class: 'body')
+    body = content_tag(:div, truncate(article.body, length: 200), class: 'body')
 
     footer =  content_tag :div, class: 'clearfix' do
-                link_to "Read more", href, class: "btn btn-clean-one"
+                link_to "Read more", article_path(article), class: "btn btn-clean-one"
               end
 
 

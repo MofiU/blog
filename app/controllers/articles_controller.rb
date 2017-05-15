@@ -1,7 +1,7 @@
 class ArticlesController < AdminController
   before_action :set_article, only: [:edit, :update, :destroy, :show]
   before_action :set_tags, only: [:edit, :new]
-
+  before_action :hit_count_increase, only: :show
 
   def index
     @articles = Article.all
@@ -14,7 +14,7 @@ class ArticlesController < AdminController
   end
 
   def new
-    @article = Article.new
+    @article = Article.new(tag_id: params[:tag_id])
   end
 
   def create
@@ -55,5 +55,11 @@ class ArticlesController < AdminController
 
   def set_tags
     @tags = Tag.all
+    redirect_to tags_path if @tags.blank?
   end
+
+  def hit_count_increase
+    @article.update!(hit_count: @article.hit_count + 1)
+  end
+
 end

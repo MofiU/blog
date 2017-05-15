@@ -8,20 +8,15 @@ class ApplicationController < ActionController::Base
   private
 
   def get_featured_articles
-    articles = [{title: 'Clean - Responsive HTML5 Template' },{ title: 'Responsive Pricing Table' },{ title: 'Yellow HTML5 Template' }]
-    @featured_articles = JSON.parse(articles.to_json, object_class: OpenStruct)
+    @featured_articles = Article.all
   end
 
   def get_relational_articles
-    articles = [{title: 'Clean - Responsive HTML5 Template' },{ title: 'Responsive Pricing Table' },{ title: 'Yellow HTML5 Template' },
-      {title: 'Blackor Responsive Theme' }, {title: 'Portfolio Bootstrap Template' }, {title: 'Clean Slider Template' }]
-    @relational_articles = JSON.parse(articles.to_json, object_class: OpenStruct)
+    @relational_articles = Article.all
   end
 
   def get_recent_articles
-    articles = [{title: 'Clean - Responsive HTML5 Template' },{ title: 'Responsive Pricing Table' },{ title: 'Yellow HTML5 Template' },
-      {title: 'Blackor Responsive Theme' }, {title: 'Portfolio Bootstrap Template' }, {title: 'Clean Slider Template' }]
-    @recent_articles = JSON.parse(articles.to_json, object_class: OpenStruct)
+    @recent_articles = Article.all
   end
 
   def get_tags

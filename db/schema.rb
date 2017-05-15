@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 20170512061959) do
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "tag_id"
     t.string   "title",                                            null: false
-    t.string   "meta",                                             null: false
     t.text     "body",           limit: 4294967295,                null: false
     t.integer  "comments_count",                    default: 0
     t.boolean  "public",                            default: true
+    t.integer  "hit_count",                         default: 0
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
     t.index ["tag_id"], name: "index_articles_on_tag_id", using: :btree
@@ -89,4 +89,6 @@ ActiveRecord::Schema.define(version: 20170512061959) do
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
   end
 
+  add_foreign_key "articles", "tags"
+  add_foreign_key "comments", "articles"
 end

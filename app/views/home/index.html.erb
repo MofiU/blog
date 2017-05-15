@@ -1,21 +1,15 @@
-<div class="row">
-    <div class="col-md-6 col-sm-6">
-       <%= blog_card("single.html", "Clean Personal Blog Template", "19 August 2015, John Doe", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sit. Doloribus dolores neque eos. Velit eveniet, necessitatibus aut sit tenetur perferendis! Commodi pariatur dignissimos, quis sequi odit iusto cumque quod!", image_url('logo.png')) %>
+<% if @articles.present? %>
+  <% @articles.in_groups_of(2).each do |articles| %>
+    <div class="row">
+      <% articles.each do |article| %>
+        <div class="col-md-6 col-sm-6 col-lg-6">
+           <%= blog_card(article) %>
+        </div>
+      <% end %>
     </div>
-    <div class="col-md-6 col-sm-6">
-        <%= blog_card("single.html", "Clean Personal Blog Template", "19 August 2015, John Doe", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sit. Doloribus dolores neque eos. Velit eveniet, necessitatibus aut sit tenetur perferendis! Commodi pariatur dignissimos, quis sequi odit iusto cumque quod!", image_url('logo.png')) %>
-    </div>
-<!-- </div> -->
-
-<!-- <div class="row"> -->
-    <div class="col-md-6 col-sm-6">
-        <%= blog_card("single.html", "Clean Personal Blog Template", "19 August 2015, John Doe", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sit. Doloribus dolores neque eos. Velit eveniet, necessitatibus aut sit tenetur perferendis! Commodi pariatur dignissimos, quis sequi odit iusto cumque quod!", image_url('logo.png')) %>
-    </div>
-    <div class="col-md-6 col-sm-6">
-        <%= blog_card("single.html", "Clean Personal Blog Template", "19 August 2015, John Doe", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, sit. Doloribus dolores neque eos. Velit eveniet, necessitatibus aut sit tenetur perferendis! Commodi pariatur dignissimos, quis sequi odit iusto cumque quod!", image_url('logo.png')) %>
-    </div>
-</div>
+  <% end %>
+<% end %>
 
 <div class="paging">
-    <a href="#" class="older">Older Post</i></a>
+  <a href="#" class="older">Older Post</i></a>
 </div>

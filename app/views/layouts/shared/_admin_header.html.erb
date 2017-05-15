@@ -21,6 +21,9 @@
             <li>
                 <%= link_to '前台主页', root_path, target: 'blank' %>
             </li>
+            <li>
+                <%= link_to '退出', destroy_user_session_path, method: :delete %>
+            </li>
           </ul>
         </div>
       </nav>

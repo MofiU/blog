@@ -9,8 +9,7 @@ class AdminController < ApplicationController
   private
 
   def get_articles
-    articles = [{title: 'Clean - Responsive HTML5 Template' },{ title: 'Responsive Pricing Table' },{ title: 'Yellow HTML5 Template' },{title: 'Clean - Responsive HTML5 Template' },{ title: 'Responsive Pricing Table' },{ title: 'Yellow HTML5 Template' },{title: 'Clean - Responsive HTML5 Template' },{ title: 'Responsive Pricing Table' },{ title: 'Yellow HTML5 Template' },{title: 'Clean - Responsive HTML5 Template' },{ title: 'Responsive Pricing Table' },{ title: 'Yellow HTML5 Template' }]
-    @articles = JSON.parse(articles.to_json, object_class: OpenStruct)
+    @articles = Article.all
   end
 
 end

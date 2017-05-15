@@ -13,13 +13,16 @@
         <div class="collapse navbar-collapse">
           <ul class="nav nav-pills navbar-nav">
             <li>
-                <a href="index.html">Home</a>
+              <%= link_to '主页', root_path %>
             </li>
             <li>
-                <a href="about.html">About</a>
+              <%= link_to '关于', home_about_path %>
             </li>
             <li>
-                <a href="contact.html">Contact</a>
+              <%= link_to '联系我', home_contact_path %>
+            </li>
+            <li>
+              <%= link_to '后台', admin_root_path %>
             </li>
           </ul>
         </div>
