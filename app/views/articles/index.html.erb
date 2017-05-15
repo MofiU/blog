@@ -1,15 +1,14 @@
-<table class="pure-table" style="width: 100%">
-  <thead>
-    <tr>
-      <th><%= link_to content_tag(:i, "" ,class: 'fa fa-plus', 'aria-hidden': true), new_article_path, title: '新建', 'data-toggle': 'tooltip' %></th>
-      <th>名称</th>
-      <th>标签</th>
-      <th>创建时间</th>
-      <th>操作</th>
-    </tr>
-  </thead>
+<div class="aside-widget">
+  <header>
+      <h3>文章列表<%= link_to(content_tag(:i, "" ,class: 'fa fa-file-text', 'aria-hidden': true), new_article_path, title: '新建文章', 'data-toggle': 'tooltip', class: 'pull-right') if current_user.has_role?(:admin) %></h3>
+  </header>
+  <div class="body">
+      <ul class="clean-list">
+        <%= render @articles %>
+      </ul>
+  </div>
+</div>
 
-  <tbody>
-    <%= render @articles %>
-  </tbody>
-</table>
+
+
+

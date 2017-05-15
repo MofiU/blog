@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def date_format(date)
+    date.strftime('%b %d, %Y')
+  end
+
   def header_logo
     link_to root_path, id: 'logo' do
       image_tag 'logo.png'
@@ -14,7 +18,7 @@ module ApplicationHelper
               concat(content_tag(:hr))
             end
 
-    body = content_tag(:div, truncate(article.body, length: 200), class: 'body')
+    body = content_tag(:div, truncate(article.body, length: 200, escape: false), class: 'body')
 
     footer =  content_tag :div, class: 'clearfix' do
                 link_to "Read more", article_path(article), class: "btn btn-clean-one"
@@ -56,7 +60,7 @@ module ApplicationHelper
     body = content_tag :div, class: 'body' do
              content_tag :ul, class: 'clean-list' do
                articles.each do |article|
-                 concat content_tag(:li) { link_to article.title, '#' }
+                 concat content_tag(:li) { link_to article.title, article_path(article) }
                end
              end
            end

@@ -1,12 +1,9 @@
-<tr>
-  <td><%= link_to article.id, article_path(article) %></td>
-  <td><%= link_to article.title, article_path(article) %></td>
-  <td><%= article.tag.name %></td>
-  <td><%= article.created_at %></td>
-  <td>
-    <div class="row">
-      <div class="col-md-6"><%= link_to content_tag(:i, "" ,class: 'fa fa-pencil', 'aria-hidden': true), edit_article_path(article), title: '编辑', 'data-toggle': 'tooltip' %></div>
-      <div class="col-md-6"><%= link_to content_tag(:i, "" ,class: 'fa fa-minus', 'aria-hidden': true), article_path(article), method: :delete, title: '删除', 'data-toggle': 'tooltip' %></div>
-    </div>
-  </td>
-</tr>
+<li>
+  <%= link_to "#{article.title} - #{date_format article.created_at}", article_path(article) %>
+  <% if current_user.has_role?(:admin) %>
+    <span class="pull-right">
+      <%= link_to content_tag(:i, "" ,class: 'fa fa-pencil', 'aria-hidden': true), edit_tag_path(article), title: '编辑', 'data-toggle': 'tooltip' %>
+      <%= link_to content_tag(:i, "" ,class: 'fa fa-minus', 'aria-hidden': true), tag_path(article), method: :delete, title: '删除', 'data-toggle': 'tooltip' %>
+    </span>
+  <% end %>
+</li>

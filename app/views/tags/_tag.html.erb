@@ -1,20 +1,10 @@
-<tr>
-  <td><%= link_to tag.id, tag_path(tag) %></td>
-  <td><%= link_to tag.name, tag_path(tag) %></td>
-  <td><%= tag.created_at %></td>
-  <td>
-  <div class="row">
-    <div class="col-md-4">
+<li>
+  <%= link_to "#{tag.name} - #{date_format tag.created_at}", tag_path(tag) %>
+  <% if current_user.has_role?(:admin) %>
+    <span class="pull-right">
       <%= link_to content_tag(:i, "" ,class: 'fa fa-pencil', 'aria-hidden': true), edit_tag_path(tag), title: '编辑', 'data-toggle': 'tooltip' %>
-    </div>
-    <div class="col-md-4">
       <%= link_to content_tag(:i, "" ,class: 'fa fa-minus', 'aria-hidden': true), tag_path(tag), method: :delete, title: '删除', 'data-toggle': 'tooltip' %>
-    </div>
-    <div class="col-md-4">
       <%= link_to content_tag(:i, "" ,class: 'fa fa-file-text', 'aria-hidden': true), new_article_path(tag_id: tag.id), title: '新建文章', 'data-toggle': 'tooltip' %>
-    </div>
-  </div>
-
-
-  </td>
-</tr>
+    </span>
+  <% end %>
+</li>

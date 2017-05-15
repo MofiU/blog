@@ -1,18 +1,13 @@
-
-<table class="pure-table" style="width: 100%">
-  <thead>
-    <tr>
-      <th><%= link_to content_tag(:i, "" ,class: 'fa fa-plus', 'aria-hidden': true), new_tag_path, title: '新建', 'data-toggle': 'tooltip' %></th>
-      <th>名称</th>
-      <th>创建时间</th>
-      <th>操作</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%= render @tags %>
-  </tbody>
-</table>
+<div class="aside-widget">
+  <header>
+      <h3>标签列表<%= link_to(content_tag(:i, "" ,class: 'fa fa-tag', 'aria-hidden': true), new_tag_path, title: '新建标签', 'data-toggle': 'tooltip', class: 'pull-right') if current_user.has_role?(:admin)  %></h3>
+  </header>
+  <div class="body">
+      <ul class="clean-list">
+        <%= render @tags %>
+      </ul>
+  </div>
+</div>
 
 
 

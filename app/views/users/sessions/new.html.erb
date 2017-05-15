@@ -7,14 +7,11 @@
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
-      <%#= f.check_box :remember_me %>
-      <%#= f.label :remember_me %>
       <%= f.input :remember_me, as: :boolean, label: '记住密码' %>
     </div>
   <% end -%>
   <%= f.button :submit, '登录' %>
   <div class="actions">
-    <%#= f.submit "Log in" %>
   </div>
 <% end %>
 
