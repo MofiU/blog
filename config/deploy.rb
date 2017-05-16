@@ -31,7 +31,7 @@ set :puma_init_active_record, true
 # set :nginx_config_name, "#{fetch(:application)}_#{fetch(:stage)}"
 # set :nginx_flags, 'fail_timeout=0'
 # set :nginx_http_flags, fetch(:nginx_flags)
-# set :nginx_server_name, "localhost #{fetch(:application)}.local"
+set :nginx_server_name, "localhost-#{fetch(:application)}.local"
 # set :nginx_sites_available_path, '/etc/nginx/sites-available'
 # set :nginx_sites_enabled_path, '/etc/nginx/sites-enabled'
 # set :nginx_socket_flags, fetch(:nginx_flags)
@@ -44,9 +44,11 @@ set :migration_servers, -> { primary(fetch(:migration_role)) }
 set :conditionally_migrate, true
 
 set :assets_roles, [:app]
+# RAILS_GROUPS env value for the assets:precompile task. Default to nil.
+# set :rails_assets_groups, :assets
 # set :assets_prefix, 'blog-assets' # config.assets.prefix = "/blog-assets"
 # set :normalize_asset_timestamps, %w{public/images public/javascripts public/stylesheets}
-
+set :keep_assets, 2
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -75,5 +77,3 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 # Default value for keep_releases is 5
 set :keep_releases, 2
-
-after 'deploy:publishing', 'deploy:restart'
