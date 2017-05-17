@@ -11,7 +11,7 @@
                         <div class="body">
                             <h1><%= @article.title %></h1>
                             <div class="meta">
-                                <i class="fa fa-user"></i> 佚名 <i class="fa fa-calendar"></i><%= @article.created_at %><i class="fa fa-comments"></i><span class="data"><a href="#comments"><%= "#{@article.comments_count} Comments" %></a></span>
+                                <i class="fa fa-user"></i> 佚名 <i class="fa fa-calendar"></i><%= date_format @article.created_at %><i class="fa fa-comments"></i><span class="data"><a href="#comments"><%= "#{@article.comments_count} " %></a></span><span><%= link_to( content_tag(:i, '编辑', class: 'fa fa-pencil'), edit_article_path(@article))  %></span>
                             </div>
                             <p><%= @article.body.html_safe %></p>
 
