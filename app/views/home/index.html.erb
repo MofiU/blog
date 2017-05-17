@@ -2,9 +2,11 @@
   <% @articles.in_groups_of(2).each do |articles| %>
     <div class="row">
       <% articles.each do |article| %>
-        <div class="col-md-6 col-sm-6 col-lg-6">
-           <%= blog_card(article) %>
-        </div>
+        <% if article %>
+          <div class="col-md-6 col-sm-6 col-lg-6">
+             <%= blog_card(article) %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   <% end %>

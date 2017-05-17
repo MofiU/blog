@@ -2,8 +2,8 @@
   <%= link_to "#{article.title} - #{date_format article.created_at}", article_path(article) %>
   <% if current_user.has_role?(:admin) %>
     <span class="pull-right">
-      <%= link_to content_tag(:i, "" ,class: 'fa fa-pencil', 'aria-hidden': true), edit_tag_path(article), title: '编辑', 'data-toggle': 'tooltip' %>
-      <%= link_to content_tag(:i, "" ,class: 'fa fa-minus', 'aria-hidden': true), tag_path(article), method: :delete, title: '删除', 'data-toggle': 'tooltip' %>
+      <%= link_to content_tag(:i, "" ,class: 'fa fa-pencil', 'aria-hidden': true), edit_article_path(article), title: '编辑', 'data-toggle': 'tooltip' %>
+      <%= link_to content_tag(:i, "" ,class: 'fa fa-minus', 'aria-hidden': true), article_path(article), method: :delete, title: '删除', 'data-toggle': 'tooltip' %>
     </span>
   <% end %>
 </li>
