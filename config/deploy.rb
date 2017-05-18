@@ -23,7 +23,7 @@ set :deploy_to,       "/opt/deploy/#{fetch(:user)}/apps/#{fetch(:application)}"
 # set :puma_role, :app
 # set :puma_env, fetch(:rack_env, fetch(:rails_env, 'production'))
 # set :puma_threads, [0, 16]
-# set :puma_workers, 0
+set :puma_workers, 2
 set :puma_init_active_record, true
 # set :puma_preload_app, true
 
